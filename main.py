@@ -41,6 +41,7 @@ def predict_category():
         cleaned_text = clean_text(data['text'])
         text_vector = tfidf.transform([cleaned_text])
         prediction = model.predict(text_vector)[0]
+        print(prediction)
         return jsonify({'category': prediction})
     except Exception as e:
         return jsonify({'error': str(e)})
